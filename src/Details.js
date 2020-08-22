@@ -1,5 +1,5 @@
 import React from "react";
-import pet from '@frontendmasters/pet'
+import pet from "@frontendmasters/pet";
 
 // const Details = props => {
 //   return (
@@ -19,7 +19,7 @@ class Details extends React.Component {
   }
 
   componentDidMount() {
-    pet.animals(this.props.id)
+    pet.animal(this.props.id)
     .then(({animal}) => {
       this.setState({
         name       : animal.name,
@@ -34,7 +34,22 @@ class Details extends React.Component {
   }
 
   render() {
-    return
+    if(this.state.loading){
+      return <h1>loading {this.props.id} ...</h1>
+    }
+
+    const { animal, breed, location, description, name } = this.state;
+
+    return(
+      <div className="details">
+        <div>
+          <h1>{name}</h1>
+          <h2>{`${animal} - ${breed} - ${location}`}</h2>
+          <button> Adopt {name}</button>
+          <p>{description}</p>
+        </div>
+      </div>
+    );
   }
 }
 
