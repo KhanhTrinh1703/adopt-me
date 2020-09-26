@@ -1,10 +1,10 @@
-import React from "react";
 import pet from "@frontendmasters/pet";
+import { navigate } from '@reach/router';
+import React, {lazy} from "react";
 import Carousel from './Carousel';
 import ErrorBoundary from './ErrorBoundary';
+// import Modal from './Modal';
 import ThemeContext from './ThemeContext';
-import {navigate} from '@reach/router';
-import Modal from './Modal';
 
 // const Details = props => {
 //   return (
@@ -13,6 +13,8 @@ import Modal from './Modal';
 //     </pre>
 //   );
 // };
+
+const Modal = lazy(() => import('./Modal'));
 
 class Details extends React.Component {
 
