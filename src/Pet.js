@@ -1,10 +1,11 @@
-import React from 'react';
-import { Router, Link } from "@reach/router";
-// your code
-export default function Pet({ name, animal, breed, media, location, id }) {
+import React from "react";
+import { Link } from "@reach/router";
 
-  let hero = 'http://placecorgi.com/300/300';
-  if(media.length) {
+const Pet = props => {
+  const { name, animal, breed, media, location, id } = props;
+
+  let hero = "http://placecorgi.com/300/300";
+  if (media.length) {
     hero = media[0].small;
   }
 
@@ -15,8 +16,10 @@ export default function Pet({ name, animal, breed, media, location, id }) {
       </div>
       <div className="info">
         <h1>{name}</h1>
-        <h2>{`${animal} - ${breed} - ${location}`}</h2>
+        <h2>{`${animal} — ${breed} — ${location}`}</h2>
       </div>
     </Link>
-  )
+  );
 };
+
+export default Pet;
